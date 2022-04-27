@@ -93,8 +93,8 @@ app.use("/", webRouter);
 
 const numCPUs = os.cpus().length;
 
-const PORT = process.argv[2] || yargObj.PORT;
-const mode = process.argv[3]?.toUpperCase() || yargObj.mode.toUpperCase();
+const PORT = process.argv[2] || 8080;
+const mode = process.argv[3]?.toUpperCase() || "FORK";
 
 if (mode === "FORK") {
 	const server = httpServer.listen(PORT, () => {
