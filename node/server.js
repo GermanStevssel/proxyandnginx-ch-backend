@@ -22,7 +22,7 @@ import normalizer from "./normalizr/normalizr.js";
 import { infoRouter } from "./routes/infoRouter.js";
 import { randomRouter } from "./routes/randomRouter.js";
 import cluster from "cluster";
-import io from "io";
+import os from "os";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -91,7 +91,7 @@ app.use("/info", infoRouter);
 app.use("/api/randoms", randomRouter);
 app.use("/", webRouter);
 
-const numCPUs = io.cpus().length;
+const numCPUs = os.cpus().length;
 
 const PORT = process.argv[2] || yargObj.PORT;
 const mode = process.argv[3]?.toUpperCase() || yargObj.mode.toUpperCase();
